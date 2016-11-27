@@ -1,0 +1,36 @@
+
+\documentclass{article}
+% \usepackage[utf8]{inputenc}
+
+\title{Progress Log}
+\maketitle
+\begin{document}
+
+\section{Sunday, 30 October 2016: Initial Brainstorming}
+
+	Today, began thinking of strategies to implement to figure out the open problem of native speaker identification. 
+	To start, I read the report on the 2013 NLI competition using ETS data. 
+	Decided to use an SVM, as it was the method with highest rates of success in competition. 
+	
+	Considered features to use in SVM Among them 
+	\begin{enumerate}
+		\item Word Unigrams. Most likely, best to use spellcorrected features as unigrams, as the dataset is not large enough for misspellings to be systematic.  
+			
+		\item Compute how words are misspelled (compute levenstein delta from levenstein distance)
+		\item Simple statistics such as: number of words per sentence, number of characters per word, number of words per sentence, percent of capitalized characters/words
+		\item Character bigrams			
+			
+	\end{enumerate}
+
+\section{Saturday,  26 November 2016: Word Unigrams, SVC}
+
+First, got dictionary of all word unigrams. accuracy of 66\% with linear SVC.\\
+Accuracy with unigrams:
+.65727273  0.66090909  0.6666666
+
+Later, combined array of word unigrams with that of character bigrams. Results were dissapointing: accuracy not higher than with just word unigrams. 
+accuracy with unigrams and char bigrams: 0.64666667  0.66030303  0.65606061]
+
+I decided to change model from linear SVC (less advanced) to SVC. 
+This was not much of a change; scikit allows you to ``plug and chug''.  
+\end{document}
